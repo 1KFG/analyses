@@ -7,7 +7,7 @@ module load geneid
 module load stajichlab
 module load snap
 module load augustus/2.7
-module load ncbi-blast/2.2.25+
+module load ncbi-blast/2.2.29+
 hostname
 
 if [ ! $PBS_NP ]; then
@@ -18,7 +18,7 @@ BASE=/shared/stajichlab/projects/1KFG
 DBFOLDER=$BASE/genomes/final_combine/DNA
 
 LISTFILE=genome_list
-
+MAX_INTRON=1500
 if [ ! -f $LISTFILE ]; then
  ls $DBFOLDER > $LISTFILE
 fi
@@ -40,7 +40,8 @@ BASE=`basename $GENOME .fasta`
 if [ ! -d $BASE.cegma ]; then
  mkdir -p $BASE.cegma
  cd $BASE.cegma
- cegma -g $DBFOLDER/$GENOME -T $PBS_NP --max_intron 2000
+ perl -p -e 's/>(\S+)\|(\S+)/>$2/' $DBFOLDER/$GENOME > $GENOME
+ cegma -g $GENOME -T $PBS_NP --max_intron $MAX_INTRON
 # echo cegma -g $DBFOLDER/$GENOME -T $PBS_NP --max_intron 2000
 else
  echo "CEGMA already run for $BASE ($GENOME)"
