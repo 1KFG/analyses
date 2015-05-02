@@ -47,6 +47,7 @@ for my $file (sort readdir(DIR) ) {
 	    if( $seq->length == 0 ) {
 		warn("no length for seq ", $id,"\n");
 	    }
+		warn("id is $id\n");
 	    if( $id =~ /(\S+)\|/) { 
 		$id = $1;
 	    }

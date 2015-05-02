@@ -1,7 +1,7 @@
 #!env perl
 use strict;
 use warnings;
-my $cutoff = 1e-50;
+my $cutoff = 1e-20;
 my %seen;
 while(<>) {
     next if /^\#/;

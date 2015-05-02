@@ -1,6 +1,6 @@
 #PBS -l nodes=1:ppn=1 -j oe -N make_best_hit_aln
 
-DIR=search
+DIR=search/Roz200
 EXT=domtbl
 
 for file in $DIR/*.$EXT
