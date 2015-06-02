@@ -4,7 +4,7 @@ N=$PBS_ARRAYID
 PEPDIR=pep
 MARKERS=HMM/AFTOL_70/markers_3.hmmb
 CUTOFF=1e-25
-OUT=search
+OUT=search/AFTOL70
 LIST=list # this is the list file
 if [ ! $N ]; then
   N=$1
