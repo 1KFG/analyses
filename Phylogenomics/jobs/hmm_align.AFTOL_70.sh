@@ -2,8 +2,8 @@
 module load trimal
 module load hmmer/3.1b1
 DBDIR=HMM/AFTOL_70/HMM3
-DIR=aln
-LIST=alnlist # this is the list file
+DIR=aln/AFTOL70
+LIST=alnlist.AFTOL70 # this is the list file
 N=$PBS_ARRAYID
 if [ ! $N ]; then
   N=$1

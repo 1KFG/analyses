@@ -3,7 +3,7 @@ module load trimal
 module load hmmer/3.1b1
 DBDIR=HMM/Roz200/HMM3
 DIR=aln/Roz200
-LIST=alnlist # this is the list file
+LIST=alnlist.Roz200 # this is the list file
 N=$PBS_ARRAYID
 if [ ! $N ]; then
   N=$1
