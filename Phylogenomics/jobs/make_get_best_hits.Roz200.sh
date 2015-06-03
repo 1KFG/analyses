@@ -6,5 +6,7 @@ EXT=domtbl
 for file in $DIR/*.$EXT
 do
  stem=`basename $file .domtbl`
- perl scripts/get_best_hmmtbl.pl $file > $DIR/$stem.best
+ if [ ! -f $DIR/$stem.best ]; then
+  perl scripts/get_best_hmmtbl.pl $file > $DIR/$stem.best
+ fi
 done
