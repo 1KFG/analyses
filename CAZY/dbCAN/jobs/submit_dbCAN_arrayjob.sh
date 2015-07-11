@@ -8,7 +8,7 @@ fi
 CUTOFF=1e-5
 CAZYFOLDER=/srv/projects/db/CAZY/CAZyDB/
 CAZYDB=$CAZYFOLDER/dbCAN-fam-HMMs.txt.v3
-BASE=/shared/stajichlab/projects/1KFG
+BASE=/bigdata/stajichlab/shared/projects/1KFG
 DBFOLDER=$BASE/genomes/final_combine/pep
 
 LISTFILE=genome_list
@@ -32,7 +32,7 @@ GENOME=`head -n $JOB $LISTFILE | tail -n 1`
 FILEBASE=`basename $GENOME .aa.fasta`
 
 # hmmer 3.0 was used to build this library
-module load hmmer/3.0 
+module load hmmer
 
 if [ ! -f $FILEBASE.dbCAN.hmmscan ]; then
 hmmscan -E $CUTOFF --cpu $CPU --domtblout $FILEBASE.dbCAN_3.domtbl $CAZYDB $DBFOLDER/$GENOME > $FILEBASE.dbCAN.hmmscan

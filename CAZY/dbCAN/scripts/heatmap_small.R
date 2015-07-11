@@ -9,9 +9,9 @@ library(ape)
 palette <- colorRampPalette(c('blue','white','red'))(100)
 #palette <- greenred(100)
 
-pdf("CAZY_1KFG.pdf",height=25,width=25)
+pdf("CAZY_1KFG_small.pdf",height=25,width=25)
 
-cazy <- read.table("cazy_sum.dat",header=T,sep="\t",row.names=1);
+cazy <- read.table("cazy_small.dat",header=T,sep="\t",row.names=1);
 gm <- data.matrix(cazy)
 
 ch <- 5
@@ -46,9 +46,5 @@ res_t <- pheatmap(gmt, main="CAZY", fontsize_row = fs_row,
 
 d <- dist(gmt)
 n <- hclust(d)
+
 plot(n)
-
-class(n)
-my_tree <- as.phylo(n) 
-write.tree(phy=my_tree, file="CAZY_1KFG_tree.newick")
-
