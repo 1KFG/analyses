@@ -4,42 +4,58 @@ use strict;
 use warnings;
 use File::Spec;
 
-my $min_count = 20;
+my $min_count = 1;
+my $min_Evalue = 1e-5;
 my @files = @ARGV;
 my %domains;
+my %domains_genes;
 my @species;
+my %dom2desc;
+my %dom2ipr;
 for my $file ( @files ) {
     my (undef,$path,$fname) = File::Spec->splitpath($file);
     #chop($path);
     my ($species) = split(/\./,$fname); 
     push @species, $species;
 #    warn("path is $path\n");
-    open(my $fh => $file) || die $!;
+    my $fh;
+    if( $file =~ /\.gz$/ ) { 
+	open($fh => "zcat $file |") || die $!;
+    } else {
+	open($fh => $file) || die $!;
+    }
+    my %seen;
     while(<$fh>) {
 	chomp;
+
 	my @row = split(/\t/,$_);
-	$row[1] =~ s/\s+$//;
-	$row[1] =~ s/\.hmm//;
-	$domains{$row[1]}->{$species}++;
+	my $domain = join(":", $row[3], $row[4]);
+	$dom2desc{$domain} = $row[5] if defined $row[5];
+	my $score = $row[8];
+	next if( $score ne '-' && $score > $min_Evalue);
+	next if ( $row[9] ne 'T' );
+	$dom2ipr{$domain} = [ $row[11], $row[12] ] if ! exists $dom2ipr{$domain};
+	$domains_genes{$domain}->{$species}++ unless $seen{$domain."--".$row[0]}++;
+	$domains{$domain}->{$species}++;
     }
 }
 
-print join("\t",qw(FAMILY), @species), "\n";
+open(my $ofh => ">IPR.domain_counts.tab") || die $!;
+open(my $ofh_genes => ">IPR.gene_domain_counts.tab") || die $!;
+print $ofh join("\t",qw(FAMILY), @species), "\n";
+print $ofh_genes join("\t",qw(FAMILY), @species), "\n";
 
-for my $domain ( map { $_->[0] }
-		 sort  { $a->[1] cmp $b->[1] || 
-			     ($a->[2] eq 'NC' ? (1) : 
-			      $b->[2] eq 'NC' ? (-1) : $a->[2] <=> $b->[2]) }
-		 map { my ($val,$n) = ($_ =~ /(\D+)(\d+|NC)/);
-		       if( ! defined $val ) { warn("No val for $_\n"); 
-					     ($val,$n) = ($_, 1); }
-		       [$_,$val,$n] }
-		 keys %domains ) {
+for my $domain ( sort keys %domains ) {
     my $sum = sum(map { exists $domains{$domain}->{$_} ? 
-					$domains{$domain}->{$_} : '0' } 
+			    $domains{$domain}->{$_} : '0' } 
 		  @species);
     next if( $sum < $min_count);
-    print join("\t", $domain, map { exists $domains{$domain}->{$_} ? 
-					$domains{$domain}->{$_} : '0' } 
-	       @species),"\n";
+    print $ofh join("\t", $domain, map { exists $domains{$domain}->{$_} ? 
+					     $domains{$domain}->{$_} : '0' } 
+		    @species),"\n";
+
+    print $ofh_genes join("\t", $domain, 
+			  map { exists $domains_genes{$domain}->{$_} ? 
+				    $domains_genes{$domain}->{$_} : '0' } 
+			  @species),"\n";
 }
