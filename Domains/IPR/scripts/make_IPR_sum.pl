@@ -29,33 +29,44 @@ for my $file ( @files ) {
 	chomp;
 
 	my @row = split(/\t/,$_);
-	my $domain = join(":", $row[3], $row[4]);
-	$dom2desc{$domain} = $row[5] if defined $row[5];
+	my $domain_src = $row[3];
+	my $domain_acc = $row[4];
+	my $combo = join(":",$domain_src,$domain_acc);
+	$dom2desc{$domain_src}->{$domain_acc} = $row[5] if defined $row[5];
 	my $score = $row[8];
 	next if( $score ne '-' && $score > $min_Evalue);
 	next if ( $row[9] ne 'T' );
-	$dom2ipr{$domain} = [ $row[11], $row[12] ] if ! exists $dom2ipr{$domain};
-	$domains_genes{$domain}->{$species}++ unless $seen{$domain."--".$row[0]}++;
-	$domains{$domain}->{$species}++;
+	$dom2ipr{$domain_src}->{$domain_acc} = [ $row[11], $row[12] ] if ! exists $dom2ipr{$domain_src}->{$domain_acc};
+	$domains_genes{$domain_src}->{$domain_acc}->{$species}++ unless $seen{$combo."--".$row[0]}++;
+	$domains{$domain_src}->{$domain_acc}->{$species}++;
     }
 }
 
-open(my $ofh => ">IPR.domain_counts.tab") || die $!;
-open(my $ofh_genes => ">IPR.gene_domain_counts.tab") || die $!;
-print $ofh join("\t",qw(FAMILY), @species), "\n";
-print $ofh_genes join("\t",qw(FAMILY), @species), "\n";
 
-for my $domain ( sort keys %domains ) {
-    my $sum = sum(map { exists $domains{$domain}->{$_} ? 
-			    $domains{$domain}->{$_} : '0' } 
-		  @species);
-    next if( $sum < $min_count);
-    print $ofh join("\t", $domain, map { exists $domains{$domain}->{$_} ? 
-					     $domains{$domain}->{$_} : '0' } 
-		    @species),"\n";
+for my $domain_src ( sort keys %domains ) {
+    open(my $ofh => ">IPR.$domain_src.counts.tab") || die $!;
+    open(my $ofh_genes => ">IPR.$domain_src.gene_counts.tab") || die $!;
+    print $ofh join("\t",qw(Domain), @species, qw(Desc IPR_Acc IPR_Desc)), "\n";
+    print $ofh_genes join("\t",qw(Domain), @species, qw(Desc IPR_Acc IPR_Desc)), 
+    "\n";
+    for my $domain_acc ( sort keys %{$domains{$domain_src}} ) {
+	my $sum = sum(map { exists $domains{$domain_src}->{$domain_acc}->{$_} ? 
+				$domains{$domain_src}->{$domain_acc}->{$_} : '0' } 
+		      @species);
+	next if( $sum < $min_count);
+	my $desc = $dom2desc{$domain_src}->{$domain_acc} || '';
+	my ($ipr_acc,$ipr_desc) =  @{$dom2ipr{$domain_src}->{$domain_acc} || ['','']};
+	print $ofh join("\t", ($domain_acc, 
+			       map { exists $domains{$domain_src}->{$domain_acc}->{$_} ? 
+					 $domains{$domain_src}->{$domain_acc}->{$_} : '0' } 
+			       @species), $desc, $ipr_acc,$ipr_desc),
+	"\n";
+	print $ofh_genes join("\t", 
+			      ($domain_acc, 
+			       map { exists $domains_genes{$domain_src}->{$domain_acc}->{$_} ? 
+					 $domains_genes{$domain_src}->{$domain_acc}->{$_} : '0' } 
+			       @species), $desc, $ipr_acc, $ipr_desc),
 
-    print $ofh_genes join("\t", $domain, 
-			  map { exists $domains_genes{$domain}->{$_} ? 
-				    $domains_genes{$domain}->{$_} : '0' } 
-			  @species),"\n";
+	"\n";
+    }
 }
