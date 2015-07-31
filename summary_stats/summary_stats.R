@@ -1,4 +1,5 @@
 lens<-read.table("genome.lens.dat",header=F,sep="\t",row.names=1)
 colnames(lens) <- c("GenomeSize")
 summary(lens)
-q()
+pdf("genome_size.pdf")
+boxplot(lens,main="Genome Size")
