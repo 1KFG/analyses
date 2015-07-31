@@ -48,7 +48,7 @@ for my $file (sort readdir(DIR) ) {
 		warn("no length for seq ", $id,"\n");
 	    }
 		warn("id is $id\n") if $debug;
-	    if( $id =~ /(\S+)\|/) { 
+	    if( $id =~ /([^\|]+)\|/) { 
 		$id = $1;
 	    }
 	    my $s = $seq->seq;
@@ -76,5 +76,3 @@ $bigaln->set_displayname_flat(1);
 my $out = Bio::AlignIO->new(-format => $oformat,
 			    -file   => ">$outfile");
 $out->write_aln($bigaln);
-
-
