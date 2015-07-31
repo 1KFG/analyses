@@ -1,0 +1,45 @@
+
+#      Statistics of the completeness of the genome based on 248 CEGs      #
+
+              #Prots  %Completeness  -  #Total  Average  %Ortho 
+
+  Complete      241       97.18      -   263     1.09      6.64
+
+   Group 1       64       96.97      -    70     1.09      7.81
+   Group 2       55       98.21      -    59     1.07      7.27
+   Group 3       58       95.08      -    66     1.14      8.62
+   Group 4       64       98.46      -    68     1.06      3.12
+
+   Partial      244       98.39      -   276     1.13     10.25
+
+   Group 1       65       98.48      -    72     1.11      9.23
+   Group 2       55       98.21      -    61     1.11     10.91
+   Group 3       60       98.36      -    71     1.18     13.33
+   Group 4       64       98.46      -    72     1.12      7.81
+
+#    These results are based on the set of genes selected by Genis Parra   #
+
+#    Key:                                                                  #
+#    Prots = number of 248 ultra-conserved CEGs present in genome          #
+#    %Completeness = percentage of 248 ultra-conserved CEGs present        #
+#    Total = total number of CEGs present including putative orthologs     #
+#    Average = average number of orthologs per CEG                         #
+#    %Ortho = percentage of detected CEGS that have more than 1 ortholog   #
+
+
+#Listing missing proteins in each category
+
+# Category: Complete 
+KOG0285
+KOG0894
+KOG1099
+KOG1185
+KOG1322
+KOG1394
+KOG2606
+
+# Category: Partial 
+KOG0285
+KOG1185
+KOG1322
+KOG1394

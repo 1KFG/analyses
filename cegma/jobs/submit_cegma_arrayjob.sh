@@ -1,20 +1,13 @@
-#PBS -l nodes=1:ppn=4,mem=24gb -q js -N cegma -j oe -l walltime=12:00:00
-
+#PBS -l nodes=1:ppn=4,mem=24gb -N cegma -j oe -l walltime=12:00:00
+module load perl
 module load cegma
-module load hmmer
-module load wise
-module load geneid
-module load stajichlab
-module load snap
-module load augustus/2.7
-module load ncbi-blast/2.2.29+
 hostname
 
 if [ ! $PBS_NP ]; then
  PBS_NP=1
 fi
 
-BASE=/shared/stajichlab/projects/1KFG
+BASE=/bigdata/stajichlab/shared/projects/1KFG
 DBFOLDER=$BASE/genomes/final_combine/DNA
 
 LISTFILE=genome_list
@@ -39,10 +32,12 @@ BASE=`basename $GENOME .fasta`
 
 if [ ! -d $BASE.cegma ]; then
  mkdir -p $BASE.cegma
+fi
+if [ ! -f $BASE.cegma/output.completeness_report ]; then
  cd $BASE.cegma
  perl -p -e 's/>(\S+)\|(\S+)/>$2/' $DBFOLDER/$GENOME > $GENOME
  cegma -g $GENOME -T $PBS_NP --max_intron $MAX_INTRON
-# echo cegma -g $DBFOLDER/$GENOME -T $PBS_NP --max_intron 2000
+# echo cegma -g $GENOME -T $PBS_NP --max_intron $MAX_INTRON
 else
  echo "CEGMA already run for $BASE ($GENOME)"
 fi

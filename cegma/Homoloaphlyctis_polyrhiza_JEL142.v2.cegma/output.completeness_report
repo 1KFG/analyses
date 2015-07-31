@@ -1,0 +1,129 @@
+
+#      Statistics of the completeness of the genome based on 248 CEGs      #
+
+              #Prots  %Completeness  -  #Total  Average  %Ortho 
+
+  Complete      188       75.81      -   355     1.89     54.79
+
+   Group 1       49       74.24      -    87     1.78     55.10
+   Group 2       47       83.93      -   104     2.21     68.09
+   Group 3       41       67.21      -    76     1.85     53.66
+   Group 4       51       78.46      -    88     1.73     43.14
+
+   Partial      213       85.89      -   436     2.05     57.75
+
+   Group 1       54       81.82      -   110     2.04     61.11
+   Group 2       47       83.93      -   113     2.40     72.34
+   Group 3       55       90.16      -   110     2.00     56.36
+   Group 4       57       87.69      -   103     1.81     43.86
+
+#    These results are based on the set of genes selected by Genis Parra   #
+
+#    Key:                                                                  #
+#    Prots = number of 248 ultra-conserved CEGs present in genome          #
+#    %Completeness = percentage of 248 ultra-conserved CEGs present        #
+#    Total = total number of CEGs present including putative orthologs     #
+#    Average = average number of orthologs per CEG                         #
+#    %Ortho = percentage of detected CEGS that have more than 1 ortholog   #
+
+
+#Listing missing proteins in each category
+
+# Category: Complete 
+KOG0018
+KOG0025
+KOG0122
+KOG0176
+KOG0177
+KOG0181
+KOG0188
+KOG0211
+KOG0285
+KOG0292
+KOG0359
+KOG0419
+KOG0424
+KOG0462
+KOG0477
+KOG0563
+KOG0567
+KOG0729
+KOG0820
+KOG0894
+KOG0969
+KOG0985
+KOG1088
+KOG1159
+KOG1185
+KOG1211
+KOG1272
+KOG1299
+KOG1355
+KOG1498
+KOG1549
+KOG1597
+KOG1712
+KOG1723
+KOG1769
+KOG1770
+KOG1795
+KOG1816
+KOG2311
+KOG2451
+KOG2531
+KOG2572
+KOG2575
+KOG2638
+KOG2653
+KOG2680
+KOG2707
+KOG2775
+KOG2781
+KOG3049
+KOG3174
+KOG3180
+KOG3189
+KOG3297
+KOG3349
+KOG3405
+KOG3459
+KOG3479
+KOG3954
+KOG4655
+
+# Category: Partial 
+KOG0018
+KOG0122
+KOG0176
+KOG0177
+KOG0181
+KOG0292
+KOG0424
+KOG0462
+KOG0563
+KOG0567
+KOG0729
+KOG0894
+KOG1088
+KOG1159
+KOG1185
+KOG1211
+KOG1549
+KOG1597
+KOG1712
+KOG1723
+KOG1769
+KOG1770
+KOG1795
+KOG1816
+KOG2311
+KOG2451
+KOG2531
+KOG2572
+KOG2707
+KOG2781
+KOG3049
+KOG3297
+KOG3349
+KOG3479
+KOG4655

@@ -1,0 +1,231 @@
+
+#      Statistics of the completeness of the genome based on 248 CEGs      #
+
+              #Prots  %Completeness  -  #Total  Average  %Ortho 
+
+  Complete      133       53.63      -   158     1.19     14.29
+
+   Group 1       23       34.85      -    26     1.13     13.04
+   Group 2       26       46.43      -    31     1.19     19.23
+   Group 3       41       67.21      -    46     1.12      7.32
+   Group 4       43       66.15      -    55     1.28     18.60
+
+   Partial      166       66.94      -   210     1.27     20.48
+
+   Group 1       35       53.03      -    38     1.09      8.57
+   Group 2       35       62.50      -    43     1.23     22.86
+   Group 3       46       75.41      -    63     1.37     26.09
+   Group 4       50       76.92      -    66     1.32     22.00
+
+#    These results are based on the set of genes selected by Genis Parra   #
+
+#    Key:                                                                  #
+#    Prots = number of 248 ultra-conserved CEGs present in genome          #
+#    %Completeness = percentage of 248 ultra-conserved CEGs present        #
+#    Total = total number of CEGs present including putative orthologs     #
+#    Average = average number of orthologs per CEG                         #
+#    %Ortho = percentage of detected CEGS that have more than 1 ortholog   #
+
+
+#Listing missing proteins in each category
+
+# Category: Complete 
+KOG0018
+KOG0062
+KOG0175
+KOG0179
+KOG0180
+KOG0184
+KOG0225
+KOG0285
+KOG0346
+KOG0361
+KOG0365
+KOG0366
+KOG0419
+KOG0434
+KOG0462
+KOG0524
+KOG0559
+KOG0563
+KOG0567
+KOG0650
+KOG0687
+KOG0729
+KOG0741
+KOG0820
+KOG0862
+KOG0871
+KOG0964
+KOG0989
+KOG0991
+KOG1112
+KOG1145
+KOG1159
+KOG1185
+KOG1211
+KOG1235
+KOG1299
+KOG1335
+KOG1349
+KOG1358
+KOG1374
+KOG1394
+KOG1458
+KOG1468
+KOG1498
+KOG1523
+KOG1532
+KOG1533
+KOG1534
+KOG1540
+KOG1549
+KOG1555
+KOG1597
+KOG1647
+KOG1662
+KOG1733
+KOG1746
+KOG1758
+KOG1760
+KOG1774
+KOG1800
+KOG1872
+KOG1889
+KOG1942
+KOG2017
+KOG2036
+KOG2311
+KOG2415
+KOG2451
+KOG2481
+KOG2519
+KOG2531
+KOG2535
+KOG2575
+KOG2606
+KOG2613
+KOG2623
+KOG2653
+KOG2680
+KOG2707
+KOG2719
+KOG2726
+KOG2770
+KOG2781
+KOG2785
+KOG2792
+KOG2825
+KOG2851
+KOG2874
+KOG2908
+KOG2967
+KOG2971
+KOG3013
+KOG3048
+KOG3052
+KOG3147
+KOG3157
+KOG3174
+KOG3180
+KOG3218
+KOG3232
+KOG3237
+KOG3239
+KOG3275
+KOG3318
+KOG3343
+KOG3349
+KOG3361
+KOG3387
+KOG3482
+KOG3497
+KOG3503
+KOG3855
+KOG3954
+KOG4392
+KOG4655
+
+# Category: Partial 
+KOG0018
+KOG0179
+KOG0180
+KOG0225
+KOG0361
+KOG0365
+KOG0419
+KOG0462
+KOG0524
+KOG0559
+KOG0563
+KOG0567
+KOG0650
+KOG0871
+KOG0989
+KOG1112
+KOG1145
+KOG1159
+KOG1185
+KOG1211
+KOG1235
+KOG1299
+KOG1335
+KOG1349
+KOG1358
+KOG1394
+KOG1458
+KOG1523
+KOG1533
+KOG1534
+KOG1540
+KOG1597
+KOG1647
+KOG1662
+KOG1733
+KOG1746
+KOG1760
+KOG1774
+KOG1800
+KOG1872
+KOG2036
+KOG2311
+KOG2415
+KOG2451
+KOG2519
+KOG2531
+KOG2535
+KOG2575
+KOG2606
+KOG2623
+KOG2653
+KOG2680
+KOG2707
+KOG2726
+KOG2770
+KOG2781
+KOG2792
+KOG2825
+KOG2851
+KOG2874
+KOG2908
+KOG3013
+KOG3048
+KOG3052
+KOG3147
+KOG3157
+KOG3180
+KOG3232
+KOG3237
+KOG3275
+KOG3318
+KOG3343
+KOG3349
+KOG3361
+KOG3387
+KOG3482
+KOG3497
+KOG3503
+KOG3855
+KOG3954
+KOG4392
+KOG4655
