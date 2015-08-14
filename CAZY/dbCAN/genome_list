@@ -49,7 +49,7 @@ Cadophora_sp_DSE1049.Cadsp1.v1.aa.fasta
 Caliciopsis_orientalis_CBS_138_64.v1.aa.fasta
 Calocera_cornea_HHB12733.Calco1.v1.aa.fasta
 Calosphaeria_pulchella.aa.fasta
-Candida_albicans_SC5314.aa.fasta
+Candida_albicans_SC5314.vA22-s05-m05-r09.aa.fasta
 Capronia_coronata_CBS_617.96.aa.fasta
 Catenaria_anguillulae_PL171.Catan1.v1.aa.fasta
 Cenococcum_geophilum_1.58.Cenge3.v2.aa.fasta
@@ -71,8 +71,8 @@ Clonostachys_rosea_CBS_125111.Cloro1.v1.aa.fasta
 Coccidioides_immitis_RS.aa.fasta
 Cochliobolus_heterostrophus_C5.aa.fasta
 Coemansia_reversa_NRRL_1564.Coere1.v1.aa.fasta
-Colletotrichum_graminicola_M1.001.v1.aa.fasta
-Colletotrichum_higginsianum_IMI_49063.v1.aa.fasta
+Colletotrichum_graminicola_M1.001.Colgr1.aa.fasta
+Colletotrichum_higginsianum_IMI_349063.Colhi1.aa.fasta
 Conidiobolus_coronatus_NRRL_28638.Conco1.v1.aa.fasta
 Coniochaeta_ligniaria_CBS_111746.aa.fasta
 Coniophora_puteana_RWD-64-598_SS2.Conpu1.v1.aa.fasta
@@ -111,7 +111,6 @@ Eutypa_lata_UCREL1.v1.aa.fasta
 Exidia_glandulosa_HHB12029.Exigl1.v1.aa.fasta
 Exobasidium_vaccinii_MPITM.Exova1.v1.aa.fasta
 Exophiala_dermatitidis_NIH_UT8656.aa.fasta
-Fellomyces_polyborus.aa.fasta
 Fibroporia_radiculosa_TFFH_294.aa.fasta
 Fibulorhizoctonia_sp_CBS_109695.Fibsp1.v1.aa.fasta
 Fistulina_hepatica_ATCC_64428.Fishe1.v1.aa.fasta
@@ -217,7 +216,6 @@ Paxillus_involutus_ATCC_200175.Paxin1.v1.aa.fasta
 Penicillium_chrysogenum_Wisconsin_54-1255.aa.fasta
 Periconia_macrospinosa_DSE2036.Perma1.v1.aa.fasta
 Phaeoacremonium_aleophilum_UCRPA7.Phaal1.aa.fasta
-Phaeosphaeria_nodorum_SN15.aa.fasta
 Phanerochaete_chrysosporium.Phchr2.v2.2.aa.fasta
 Phlebia_brevispora_HHB-7030_SS6.Phlbr1.v1.aa.fasta
 Phlebiopsis_gigantea_11061_1_CR5-6.Phlgi1.v1.aa.fasta

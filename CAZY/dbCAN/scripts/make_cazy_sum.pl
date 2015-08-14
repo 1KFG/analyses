@@ -3,7 +3,9 @@ use List::Util qw(sum);
 use strict;
 use warnings;
 use File::Spec;
-
+# specify on the cmdline the input files to read in to make a matrix of counts for each domain
+# in this case do
+# perl make_cazy_sum.pl *.tab > cazy_sum.dat
 my $min_count = 20;
 my @files = @ARGV;
 my %domains;
