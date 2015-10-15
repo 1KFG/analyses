@@ -1,6 +1,6 @@
 #PBS -l nodes=1:ppn=1 -j oe -N hmmalign
 module load trimal
-module load hmmer/3.1b1
+module load hmmer/3
 DBDIR=HMM/Roz200/HMM3
 DIR=aln/Roz200
 LIST=alnlist.Roz200 # this is the list file
@@ -14,16 +14,18 @@ if [ ! $N ]; then
  exit;
 fi
 
-G=`head -n $N $LIST | tail -n 1`
+G=`sed -n ${N}p $LIST`
 marker=`basename $G .fa`
 if [ ! -f $DIR/$marker.msa ]; then
  hmmalign --trim --amino $DBDIR/$marker.hmm $DIR/$marker.fa > $DIR/$marker.msa
 fi
 
 if [ ! -f $DIR/$marker.aln ]; then
- sreformat clustal $DIR/$marker.msa > $DIR/$marker.aln
+ esl-reformat --replace=\*:-  --gapsym=- clustal $DIR/$marker.msa > $DIR/$marker.1.aln
+ esl-reformat --replace=x:- clustal $DIR/$marker.1.aln > $DIR/$marker.aln
 fi
 
 if [ ! -f $DIR/$marker.msa.trim ]; then
- trimal -automated1 -fasta -in $DIR/$marker.aln -out $DIR/$marker.msa.trim
+ trimal -resoverlap 0.50 -seqoverlap 60 -in $DIR/$marker.aln -out $DIR/$marker.msa.filter
+ trimal -automated1 -fasta -in $DIR/$marker.msa.filter -out $DIR/$marker.msa.trim 
 fi
