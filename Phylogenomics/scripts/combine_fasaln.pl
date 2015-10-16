@@ -37,7 +37,7 @@ my (%matrix);
 for my $file (sort readdir(DIR) ) {
     next if $file eq $outfile;
     next unless ($file =~ /(\S+)\.\Q$ext\E$/);
-    my $in = Bio::AlignIO->new(-format => $iformat,
+    my $in = Bio::AlignIO->new(-format => $iformat, -alphabet => 'protein',
 			       -file   => "$dir/$file");
     warn($file,"\n") if $debug;
     if( my $aln = $in->next_aln ) {
