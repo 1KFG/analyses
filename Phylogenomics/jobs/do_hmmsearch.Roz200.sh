@@ -1,5 +1,5 @@
 #PBS -l nodes=1:ppn=2 -N Roz.HMMsearch -j oe
-module load hmmer/3.1b1
+module load hmmer/3
 N=$PBS_ARRAYID
 PEPDIR=pep
 MARKERS=HMM/Roz200/markers_3.hmmb
@@ -21,7 +21,7 @@ if [ ! $CPU ]; then
 fi
 
 mkdir -p $OUT
-G=`head -n $N $LIST | tail -n 1`
+G=`sed -n ${N}p $LIST`
 NM=`basename $G .aa.fasta`
 echo "g=$G"
 
