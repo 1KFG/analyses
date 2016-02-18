@@ -18,7 +18,7 @@ while(<$fh>) {
     my ($pref,$name) = split;
     $map{$pref} = $name;
 }
-if( my $tree = $in->next_tree ) {
+while( my $tree = $in->next_tree ) {
     for my $node ( grep { $_->is_Leaf } $tree->get_nodes ) {
 	my $id = $node->id;
 	if( my $lookup = $map{$id} ) {

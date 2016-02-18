@@ -21,7 +21,7 @@ my %by_gene;
 for my $file ( readdir(BEST) ) {
     next unless $file =~ /(\S+)\.best/;
     my $stem = $1;
-    open(my $fh => "$dir/$file") || die $!;
+    open(my $fh => "$dir/$file") || die "$dir/$file: $!";
     while(<$fh>) {
 	my ($gene,$name) = split;
 	$by_gene{$gene}->{$stem} = $name;
