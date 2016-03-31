@@ -1,9 +1,9 @@
-#PBS -l nodes=1:ppn=1 -j oe -N hmmalign -l walltime=4:00:00
+#PBS -l nodes=1:ppn=1 -j oe -N hmmalign.JGI1086 -l walltime=4:00:00
 module load trimal
 module load hmmer/3
-DBDIR=HMM/Roz200/HMM3
-DIR=aln/Roz200
-LIST=alnlist.Roz200 # this is the list file
+DBDIR=HMM/JGI_1086/HMM3
+DIR=aln/JGI_1086
+LIST=alnlist.JGI_1086 # this is the list file
 N=$PBS_ARRAYID
 if [ ! $N ]; then
   N=$1

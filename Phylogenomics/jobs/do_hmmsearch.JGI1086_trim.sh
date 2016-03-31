@@ -1,10 +1,10 @@
-#PBS -l nodes=1:ppn=2 -N Roz.HMMsearch -j oe -l walltime=2:00:00
+#PBS -l nodes=1:ppn=2 -N JGItrim.HMMsearch -j oe -l walltime=2:00:00
 module load hmmer/3
 N=$PBS_ARRAYID
 PEPDIR=pep
-MARKERS=HMM/Roz200/markers_3.hmmb
+MARKERS=HMM/JGI_1086_trim/markers_3.hmmb
 CUTOFF=1e-8
-OUT=search/Roz200
+OUT=search/JGI_1086_trim
 LIST=list # this is the list file
 if [ ! $N ]; then
   N=$1

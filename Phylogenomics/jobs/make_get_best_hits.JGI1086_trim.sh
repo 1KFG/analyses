@@ -1,6 +1,6 @@
-#PBS -l nodes=1:ppn=1 -j oe -N make_best_hit_aln
+#PBS -l nodes=1:ppn=1 -j oe -N besthit.JGI-trim
 
-DIR=search/AFTOL70
+DIR=search/JGI_1086_trim
 EXT=domtbl
 
 for file in $DIR/*.$EXT

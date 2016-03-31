@@ -19,7 +19,7 @@ if [ $PBS_NUM_PPN ]; then
  CPU=$PBS_NUM_PPN
 fi
 
-FILE=`head -n $F $GENOMELIST | tail -n 1`
+FILE=`sed -n ${F}p $GENOMELIST`
 if [ ! $FILE ]; then
  echo "No input file - check PBS_ARRAYID or input number, F=$F GENOMELIST=$GENOMELIST"
  exit

@@ -1,10 +1,10 @@
-#PBS -l nodes=1:ppn=2 -N AFTOL.HMMsearch -j oe
-module load hmmer/3.1b1
+#PBS -l nodes=1:ppn=2 -N JGI.HMMsearch -j oe -l walltime=2:00:00
+module load hmmer/3
 N=$PBS_ARRAYID
 PEPDIR=pep
-MARKERS=HMM/AFTOL_70/markers_3.hmmb
-CUTOFF=1e-25
-OUT=search/AFTOL70
+MARKERS=HMM/JGI_1086/markers_3.hmmb
+CUTOFF=1e-8
+OUT=search/JGI_1086
 LIST=list # this is the list file
 if [ ! $N ]; then
   N=$1
@@ -20,7 +20,8 @@ if [ ! $CPU ]; then
  CPU=1
 fi
 
-G=`head -n $N $LIST | tail -n 1`
+mkdir -p $OUT
+G=`sed -n ${N}p $LIST`
 NM=`basename $G .aa.fasta`
 echo "g=$G"
 
