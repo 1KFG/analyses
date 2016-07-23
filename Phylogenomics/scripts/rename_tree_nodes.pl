@@ -11,13 +11,14 @@ my $in = Bio::TreeIO->new(-format => 'newick', -file => shift);
 
 my $prefixes = shift;
 
-open(my $fh => $prefixes) || die $!;
+open(my $fh => $prefixes) || die "$prefixes: $!";
 my %map;
 while(<$fh>) {
     next if /^Pref/;
     my ($pref,$name) = split;
     $map{$pref} = $name;
 }
+
 while( my $tree = $in->next_tree ) {
     for my $node ( grep { $_->is_Leaf } $tree->get_nodes ) {
 	my $id = $node->id;
