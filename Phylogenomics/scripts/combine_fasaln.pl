@@ -48,7 +48,7 @@ my @part;
 my $last = 1;
 for my $file (sort readdir(DIR) ) {
     next if $file eq $outfile;
-    warn("file is $file\n");
+    warn("file is $file\n") if $debug;
     next unless ($file =~ /(\S+)\.\Q$ext\E$/);
     my $stem = $1;
     if( $include ) {	
@@ -59,7 +59,7 @@ for my $file (sort readdir(DIR) ) {
     }
     my $in = Bio::AlignIO->new(-format => $iformat, -alphabet => 'protein',
 			       -file   => "$dir/$file");
-    my ($fbase) = split(/\./,$file);
+    my ($fbase) = $stem;
     warn($file,"\n") if $debug;
     if( my $aln = $in->next_aln ) {
         my $now = $last + $aln->length - 1;
@@ -92,7 +92,7 @@ for my $file (sort readdir(DIR) ) {
 my $bigaln = Bio::SimpleAlign->new;
 while( my ($id,$seq) = each %matrix ) {
     
-    warn("seq $id length is ",length($seq),"\n");
+    warn("seq $id length is ",length($seq),"\n") if $debug;
     $bigaln->add_seq(Bio::LocatableSeq->new(-id  => $id,
 					    -seq => $seq));
 }
