@@ -1,7 +1,10 @@
 #!env perl
 use strict;
 use warnings;
+use Getopt::Long;
 my $cutoff = 1e-20;
+GetOptions('c|e|cutoff:s' => \$cutoff);
+
 my %seen;
 while(<>) {
     next if /^\#/;
@@ -13,8 +16,8 @@ while(<>) {
     if( exists $seen{$q} ) {
 	next;
     }
-    $seen{$q} = $t;
+    $seen{$q} = [$t,$evalue];
 }
 for my $s ( keys %seen ) {
-    print join("\t",$s,$seen{$s}),"\n";
+    print join("\t",$s,@{$seen{$s}}),"\n";
 }
