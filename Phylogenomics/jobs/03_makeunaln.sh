@@ -3,4 +3,5 @@
 module load perl
 module load cdbfasta
 module load hmmer
+mkdir -p aln/JGI_1086
 perl scripts/construct_unaln_files_cdbfasta.pl -d search/JGI_1086 -db pep -o aln/JGI_1086
