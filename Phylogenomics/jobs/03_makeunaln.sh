@@ -3,5 +3,12 @@
 module load perl
 module load cdbfasta
 module load hmmer
-mkdir -p aln/JGI_1086
-perl scripts/construct_unaln_files_cdbfasta.pl -d search/JGI_1086 -db pep -o aln/JGI_1086
+MARKER=JGI_1086
+ALN=aln
+search=search
+mkdir -p $ALN/$MARKER
+perl scripts/construct_unaln_files_cdbfasta.pl -d $SEARCH/$MARKER -db pep -o $ALN/$MARKER -ext aa.fasta
+
+if [ -d cds ]; then
+ perl scripts/construct_unaln_files_cdbfasta.pl -d $SEARCH/$MARKER -db cds -o $ALN/$MARKER -ext cds.fasta
+fi 
