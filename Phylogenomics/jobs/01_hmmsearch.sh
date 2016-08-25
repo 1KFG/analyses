@@ -1,4 +1,4 @@
-#PBS -l nodes=1:ppn=2 -N HMMsearch -j oe -l walltime=2:00:00
+#PBS -l nodes=1:ppn=2 -N hmmsearch -j oe -l walltime=2:00:00
 module load hmmer/3
 N=$PBS_ARRAYID
 PEPDIR=pep
