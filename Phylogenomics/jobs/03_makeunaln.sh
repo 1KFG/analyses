@@ -5,7 +5,7 @@ module load cdbfasta
 module load hmmer
 MARKER=JGI_1086
 ALN=aln
-search=search
+SEARCH=search
 mkdir -p $ALN/$MARKER
 perl scripts/construct_unaln_files_cdbfasta.pl -d $SEARCH/$MARKER -db pep -o $ALN/$MARKER -ext aa.fasta
 
