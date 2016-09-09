@@ -1,9 +1,17 @@
-#PBS -l nodes=1:ppn=1 -j oe -N hmmalign.JGI1086 -l walltime=4:00:00
+#PBS -l nodes=1:ppn=1 -j oe -N hmmalign.1086 -l walltime=3:00:00
 module load trimal
 module load hmmer/3
-DBDIR=HMM/JGI_1086/HMM3
-DIR=aln/JGI_1086
-LIST=alnlist.JGI_1086 # this is the list file
+module load java
+module load BMGE
+MARKER=JGI_1086
+DBDIR=HMM/$MARKER/HMM3
+DIR=aln/$MARKER
+LIST=alnlist.$MARKER # this is the list file
+if [ ! -f $LIST ]; then
+ pushd aln/$MARKER
+ ls *.aa.fasta > ../../$LIST
+ popd
+fi
 N=$PBS_ARRAYID
 if [ ! $N ]; then
   N=$1
@@ -15,11 +23,11 @@ if [ ! $N ]; then
 fi
 
 G=`sed -n ${N}p $LIST`
-marker=`basename $G .fa`
+marker=`basename $G .aa.fasta`
 echo "marker is $marker for gene $G $N from $LIST"
 
 if [ ! -f $DIR/$marker.msa ]; then
- hmmalign --trim --amino $DBDIR/$marker.hmm $DIR/$marker.fa | perl -p -e 's/^>(\d+)\|/>/' > $DIR/$marker.msa
+ hmmalign --trim --amino $DBDIR/$marker.hmm $DIR/$marker.aa.fasta | perl -p -e 's/^>(\d+)\|/>/' > $DIR/$marker.msa
 fi
 
 if [ ! -f $DIR/$marker.aln ]; then
@@ -30,4 +38,11 @@ fi
 if [ ! -f $DIR/$marker.msa.trim ]; then
  trimal -resoverlap 0.50 -seqoverlap 60 -in $DIR/$marker.aln -out $DIR/$marker.msa.filter
  trimal -automated1 -fasta -in $DIR/$marker.msa.filter -out $DIR/$marker.msa.trim 
+fi
+
+if [ -f $DIR/$marker.cds.fasta ]; then
+ if [ ! -f $DIR/$marker.cdsaln.trim ]; then
+  bp_mrtrans.pl -if clustalw -of fasta -i $DIR/$marker.aln -s $DIR/$marker.cds.fasta -o $DIR/$marker.cdsaln
+  java -jar $BMGE -t CODON -i $DIR/$marker.cdsaln -of $DIR/$marker.cdsaln.trim
+ fi
 fi
