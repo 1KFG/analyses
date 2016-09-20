@@ -28,7 +28,7 @@ if [ ! $JOB ]; then
  exit
 fi
 
-GENOME=`head -n $JOB $LISTFILE | tail -n 1`
+GENOME=`sed -n ${JOB}p $LISTFILE`
 FILEBASE=`basename $GENOME .aa.fasta`
 
 # hmmer 3.0 was used to build this library

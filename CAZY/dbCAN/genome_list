@@ -33,6 +33,8 @@ Aureobasidium_pullulans_var_pullulans_EXF-150.Aurpu_var_pul1.aa.fasta
 Auricularia_subglabra_TFB10046_SS-5.Aurde3_1.v2.aa.fasta
 Auriscalpium_vulgare_FP105234-Sp.Aurvu1.v1.aa.fasta
 Backusella_circina_FSU_941.Bacci1.v1.aa.fasta
+Basidiobolus_meristosporus_B9252.aa.fasta
+Basidiobolus_meristosporus_CBS_931.73.Basme2finSC.v1.aa.fasta
 Batrachochytrium_dendrobatidis_JAM81.Batde5.v1.aa.fasta
 Baudoinia_compniacensis_UAMH_10762.Bauco1.v1.aa.fasta
 Beauveria_bassiana_ARSEF_2860.Beaba1.aa.fasta
@@ -71,9 +73,10 @@ Clonostachys_rosea_CBS_125111.Cloro1.v1.aa.fasta
 Coccidioides_immitis_RS.aa.fasta
 Cochliobolus_heterostrophus_C5.aa.fasta
 Coemansia_reversa_NRRL_1564.Coere1.v1.aa.fasta
-Colletotrichum_graminicola_M1.001.Colgr1.aa.fasta
-Colletotrichum_higginsianum_IMI_349063.Colhi1.aa.fasta
+Colletotrichum_graminicola_M1.001.v1.aa.fasta
+Colletotrichum_higginsianum_IMI_349063.v1.aa.fasta
 Conidiobolus_coronatus_NRRL_28638.Conco1.v1.aa.fasta
+Conidiobolus_thromboides_FSU_785.Conth1.v1.aa.fasta
 Coniochaeta_ligniaria_CBS_111746.aa.fasta
 Coniophora_puteana_RWD-64-598_SS2.Conpu1.v1.aa.fasta
 Coprinopsis_cinerea_okayama7_130.aa.fasta
@@ -111,6 +114,7 @@ Eutypa_lata_UCREL1.v1.aa.fasta
 Exidia_glandulosa_HHB12029.Exigl1.v1.aa.fasta
 Exobasidium_vaccinii_MPITM.Exova1.v1.aa.fasta
 Exophiala_dermatitidis_NIH_UT8656.aa.fasta
+Fellomyces_polyborus_CBS_6072.v1.aa.fasta
 Fibroporia_radiculosa_TFFH_294.aa.fasta
 Fibulorhizoctonia_sp_CBS_109695.Fibsp1.v1.aa.fasta
 Fistulina_hepatica_ATCC_64428.Fishe1.v1.aa.fasta
@@ -132,7 +136,7 @@ Gymnascella_citrina_NRRL_5970.Gymci1_1.v1.1.aa.fasta
 Gymnopus_luxurians.Gymlu1.v1.aa.fasta
 Gyrodon_lividus_BX.Gyrli1.v1.aa.fasta
 Hebeloma_cylindrosporum_h7.Hebcy2.v2.aa.fasta
-Hesseltinella_vesiculosa_NRRL_3301.Hesve1.v1.aa.fasta
+Hesseltinella_vesiculosa_NRRL_3301.Hesve2finisherSC.v2.aa.fasta
 Heterobasidion_annosum_TC_32-1.Hetan2.v2.aa.fasta
 Heterogastridium_pycnidioideum_ATCC_MYA-4631.Hetpy1.v1.aa.fasta
 Holtermanniella_mycelialis.aa.fasta
@@ -160,6 +164,7 @@ Leptosphaeria_maculans_JN3.aa.fasta
 Leucogyrophana_mollusca_KUC20120723A-06.Leumo1.v1.aa.fasta
 Lichtheimia_corymbifera_FSU_9682.aa.fasta
 Lichtheimia_hyalospora_FSU_10163.Lichy1.v1.aa.fasta
+Linderina_pennispora_ATCC_12442.Linpe1.v1.aa.fasta
 Lodderomyces_elongisporus_NRRL_YB-4239.aa.fasta
 Lophiostoma_macrostomum_CBS_122681.Lopma1.v1.aa.fasta
 Lophium_mytilinum_CBS_269.34.Lopmy1.v1.aa.fasta
@@ -168,6 +173,7 @@ Macrolepiota_fuliginosa.Macfu1.v1.aa.fasta
 Magnaporthe_oryzae_70-15.aa.fasta
 Malassezia_globosa.aa.fasta
 Marssonina_brunnea_f._sp._multigermtubi_MB_m1.aa.fasta
+Martensiomyces_pterosporus_CBS_209.56.Marpt1.v1.aa.fasta
 Meira_geulakonigii.aa.fasta
 Meira_miltonrushii_CBS_12591.Meimi1.v1.aa.fasta
 Melampsora_laricis-populina_98AG31.Mellp1.v1.aa.fasta
@@ -224,6 +230,7 @@ Pichia_kudriavzevii_SD108.v1.aa.fasta
 Pichia_stipitis_CBS_6054.Picst3.v2.aa.fasta
 Piedraia_hortae_CBS_480.64.Pieho1_1.v1.1.aa.fasta
 Piloderma_croceum_F_1598.Pilcr1.v1.aa.fasta
+Piptocephalis_cylindrospora.Pipcy2.v2.aa.fasta
 Piriformospora_indica_DSM_11827.Pirin1.aa.fasta
 Piromyces_sp_E2.PirE2_1.v1.aa.fasta
 Pisolithus_tinctorius_Marx_270.Pisti1.v1.aa.fasta
@@ -245,6 +252,7 @@ Punctularia_strigosozonata_HHB-11173_SS5.aa.fasta
 Pyrenophora_tritici-repentis.aa.fasta
 Pyronema_confluens_CBS_100304.Pyrco1.aa.fasta
 Ramaria_rubella_UT-36052-T.Ramac1.v1.aa.fasta
+Ramicandelaber_brevisporus_CBS_109374.Rambr1.v1.aa.fasta
 Rhizoctonia_solani_AG-1_IA.aa.fasta
 Rhizoctonia_solani_AG-1_IB.Rhiso1.aa.fasta
 Rhizophagus_irregularis_DAOM_181602.Gloin1.v1.aa.fasta
@@ -291,7 +299,7 @@ Suillus_luteus_UH-Slu-Lm8-n1.Suilu1.v1.aa.fasta
 Symbiotaphrina_kochii_250.77.Symko1.v1.aa.fasta
 Talaromyces_marneffei_ATCC_18224.aa.fasta
 Talaromyces_stipitatus_ATCC_10500.aa.fasta
-Taphrina_deformans.aa.fasta
+Taphrina_deformans.Tapde1_1.aa.fasta
 Terfezia_boudieri_S1.Terbo2.v1.1.aa.fasta
 Testicularia_cyperi_MCA_3645.Tescy1.v1.aa.fasta
 Tetrapisispora_phaffii_CBS_4417.aa.fasta
