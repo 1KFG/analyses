@@ -1,4 +1,3 @@
-*.hmmscan
-*.domtbl
+*.hmmscan*
+*.domtbl*
 all.hmm.ps.len
-*.tab
