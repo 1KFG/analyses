@@ -2,9 +2,9 @@
 use strict;
 use warnings;
 my $alistat = '/opt/linux/centos/7.x/x86_64/pkgs/hmmer/3.1b2/bin/esl-alistat';
-my $expected_list = shift || 'strains';
-my $aa_aln_dir = shift || 'marker_aln';
-my $trim_dir = shift || 'marker_aln';
+my $expected_list = shift || 'expected';
+my $aa_aln_dir = shift || 'aln/JGI_1086';
+my $trim_dir = shift || 'aln/JGI_1086';
 my %expected;
 open(my $fh => $expected_list ) || die $!;
 while(<$fh>) {
