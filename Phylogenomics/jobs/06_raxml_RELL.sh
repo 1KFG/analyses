@@ -1,8 +1,7 @@
-#PBS -l nodes=1:ppn=32 -q batch -N raxml -j oe
+#PBS -l nodes=1:ppn=32 -q batch -N raxmlRELL -j oe
 module load RAxML
 
 CPU=2
-
 if [ $PBS_NUM_PPN ]; then
  CPU=$PBS_NUM_PPN
 fi
@@ -10,6 +9,8 @@ if [ -f config.txt ]; then
  source config.txt
 else
  PREFIX=ALL
+ FINALPREF=1KFG
+ OUT=Pult
 fi
 count=`wc -l expected | awk '{print $1}'`
 datestr=`date +%Y_%b_%d`
@@ -21,5 +22,5 @@ if [ ! -f phylo/$str.fasaln ]; then
 fi
 
 cd phylo
-raxmlHPC-PTHREADS-AVX -T $CPU -f D -p 771 -o Rall -m PROTGAMMALG \
-  -s $str.fasaln -n Zygo_RD2_RELL.$str 
+raxmlHPC-PTHREADS-AVX -T $CPU -f D -p 771 -o $OUT -m PROTGAMMALG \
+  -s $str.fasaln -n ${FINALPREF}_RELL.$str 
