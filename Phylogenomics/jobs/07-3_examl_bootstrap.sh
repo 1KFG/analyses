@@ -2,7 +2,7 @@
 module load ExaML
 module load RAxML
 # need starting tree 
-BASE=BS
+BASE=aln.BS
 N=$PBS_ARRAYID
 if [ "$N" == "" ]; then
  N=$1

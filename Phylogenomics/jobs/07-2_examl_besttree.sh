@@ -1,4 +1,4 @@
-#PBS -l nodes=4:ppn=3,mem=4gb -N ExaML.Best -j oe
+#PBS -l nodes=2:ppn=16,mem=64gb -N ExaML.Best -j oe
 module load ExaML
 module load RAxML
 # need starting tree 
@@ -12,14 +12,14 @@ if [ "$N" == "" ]; then
  exit
 fi
 
-PARTITION=partition_all.txt
+PARTITION=partitions_all.txt
 BASE=aln
-if [ ! -f ${BASE}.binary ]; then
+if [ ! -f ${BASE}_Best.binary ]; then
  convertFasta2Phylip.sh $BASE > $BASE.phy
  parse-examl -s $BASE.phy -m PROT -n ${BASE}_Best -q $PARTITION
 fi
 
 
-mpirun examl-AVX -s ${BASE}_Best.binary -m GAMMA \
+mpirun examl-OMP-AVX -s ${BASE}_Best.binary -m GAMMA \
  -n all_Phylo.T$N -f d --auto-prot=aic -t RAxML_parsimonyTree.T$N
 

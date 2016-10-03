@@ -7,9 +7,9 @@ count=`wc -l expected | awk '{print $1}'`
 # this needs to be from a config file!
 #if [ ! -f phylo.config ]; then
 # need to change prefix at some point based on a config file
-str=Zygo.JGI1086.${count}sp
+str=JGI1086.${count}sp
 IN=all_${count}.JGI_1086
-PREFIX=Zygo
+PREFIX=1KFG
 DIR=phylo/ExaML_$str
 PARTFILE=partitions.all.txt
 mkdir -p $DIR
