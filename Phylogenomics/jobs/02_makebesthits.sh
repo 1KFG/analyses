@@ -1,4 +1,6 @@
-#PBS -l nodes=1:ppn=1 -j oe -N besthit.JGI
+#!/usr/bin/bash
+#SBATCH --nodes=1
+#SBATCH --ntasks=1
 
 DIR=search/JGI_1086
 EXT=domtbl

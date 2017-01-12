@@ -1,4 +1,10 @@
-#PBS -l nodes=1:ppn=1 -j oe -N hmmalign.1086 -l walltime=3:00:00
+#!/usr/bin/bash
+#SBATCH -p batch
+#SBATCH --nodes=1
+#SBATCH --ntasks=1
+#SBATCH --job-name=hmmalign
+#SBATCH --time=3:00:00
+
 module load trimal
 module load hmmer/3
 module load java
@@ -14,7 +20,7 @@ if [ ! -f $LIST ]; then
 fi
 N=$PBS_ARRAYID
 if [ ! $N ]; then
-  N=$1
+ N=$SLURM_ARRAY_TASK_ID
 fi
 
 if [ ! $N ]; then
