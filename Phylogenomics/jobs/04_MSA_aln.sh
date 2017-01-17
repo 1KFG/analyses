@@ -1,4 +1,9 @@
-#PBS -l nodes=1:ppn=1 -N MSA -j oe -l walltime=3:00:00
+#!/usr/bin/bash
+
+#SBATCH --nodes=1
+#SBATCH --ntasks=1
+#SBATCH --time=3:00:00
+#SBATCH --job-name=MSA
 module load muscle
 module load BMGE
 module load java

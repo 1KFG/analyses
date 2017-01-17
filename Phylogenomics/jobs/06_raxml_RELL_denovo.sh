@@ -1,11 +1,21 @@
-#PBS -l nodes=1:ppn=32,mem=64gb -q highmem -N raxmlAVX.denovo -j oe
+#!/usr/bin/bash
+#SBATCH --nodes=1
+#SBATCH --ntasks=64
+#SBATCH --mem-per-cpu=1G
+#SBATCH --job-name=raxmlRELLdenovo
+#SBATCH --mail-type=ALL
+
+#-l nodes=1:ppn=32,mem=64gb -q highmem -N raxmlAVX.denovo -j oe
+
 module load RAxML
 
 CPU=2
 
-if [ $PBS_NUM_PPN ]; then
- CPU=$PBS_NUM_PPN
+if [ $SLURM_JOB_CPUS_PER_NODE ]; then
+ CPU=$SLURM_JOB_CPUS_PER_NODE
 fi
+
+
 if [ -f config.txt ]; then
  source config.txt
 else
@@ -24,6 +34,5 @@ if [ ! -f phylo/$str.fasaln ]; then
 fi
 cd phylo
 
-#raxmlHPC-PTHREADS-AVX -T $CPU -f a -x 227 -p 771 -o $OUT -m PROTGAMMAAUTO \
-#  -s $str.fasaln -n $PREFIX -N autoMRE 
-raxmlHPC-PTHREADS-AVX -T $CPU -f D -p 771 -o $OUT -m PROTGAMMAAUTO -s $str.fasaln -n $str
+raxmlHPC-PTHREADS-AVX -T $CPU -f D -p 771 -o $OUT \
+ -m PROTGAMMAAUTO -s $str.fasaln -n $str
