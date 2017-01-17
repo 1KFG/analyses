@@ -24,8 +24,11 @@ if [ ! $N ]; then
 fi
 
 if [ ! $N ]; then
- echo "need to have a job id"
- exit;
+ N=$1
+ if [ ! $N ]; then
+  echo "need to have a job id"
+  exit;
+ fi
 fi
 
 G=`sed -n ${N}p $LIST`
