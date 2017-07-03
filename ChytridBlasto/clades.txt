@@ -1,0 +1,6 @@
+Blastocladiomycota	Amac,Catan2,Blabri1
+Chytridiomycota		Anasp1,Batde5,Blyhe1,Caupr1,Chylag1,Chytri1,Enthel1,Gaesem1,Glopol1,Ganpr1,Hpol,Orpsp1_1,Pirfi3,PirE2_1,Rhihy1,Spun
+Cryptomycota	Rall
+Dikarya			Afum,Ccin,Eder,Mixos1,Ncra,Ptri,Spom,Sporo1,Umay,Walse1,Ylip,Zymps1,Cneo
+Mucoromycota		Morel1,Mucci2
+Zoopagomycota		Conco1,Conth1
